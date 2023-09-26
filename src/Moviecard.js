@@ -1,19 +1,7 @@
 import React from 'react';
 
 class Moviecard extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			title: 'The Avengers',
-			plot: 'Super Hero Movie',
-			price: 100,
-			rating: 8.9,
-			stars: -1,
-			fav:false,
-			cart:true
-		};
-		// this.addStars = this.addStars.bind(this);
-	}
+	
 	addStars = () => {
 		//FORM1
 		this.setState({
@@ -47,7 +35,7 @@ class Moviecard extends React.Component {
 			return;
 		}
 		this.setState({
-			stars: this.state.stars - 0.5,
+			stars: this.state.stars - 1,
 		});
 	};
 
@@ -63,7 +51,7 @@ class Moviecard extends React.Component {
 		})
 	}
 	render() {
-		const { title, plot, price, rating, stars,fav,cart } = this.state;
+		const { title, plot, price, rating, stars,fav,cart } = this.props;
 		return (
 			<div className="main">
 				<div className="movie-card">
