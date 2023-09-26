@@ -1,55 +1,6 @@
 import React from 'react';
 
 class Moviecard extends React.Component {
-	
-	addStars = () => {
-		//FORM1
-		this.setState({
-			stars : this.state.stars + 1
-		},
-			() => {
-				//to need the current value use the callback as the argument in the setState
-				this.setState({
-					stars:this.state.stars + 1
-				})
-				console.log('stars inside callback :', this.state.stars);
-			})
-
-		//FORM2
-		// this.setState(
-		// 	(prevState) => {
-		// 		if (this.state.stars >= 5) {
-		// 			return;
-		// 		}
-		// 		return {
-		// 			stars: prevState.stars + 0.5,
-		// 		};
-		// 	}
-		// );
-		// this.state.stars += 0.5;
-		console.log('Stars :', this.state.stars);
-	};
-
-	minusstars = () => {
-		if (this.state.stars <= 0) {
-			return;
-		}
-		this.setState({
-			stars: this.state.stars - 1,
-		});
-	};
-
-	handlefav = ()=>{
-		this.setState({
-			fav : ! this.state.fav
-		})
-	}
-
-	handlecart =()=>{
-		this.setState({
-			cart:!this.state.cart
-		})
-	}
 	render() {
 		const { title, plot, price, rating, stars,fav,cart } = this.props.movies;
 		return (
