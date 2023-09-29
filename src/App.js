@@ -1,6 +1,6 @@
 
 import Movielist from "./MovieList";
-import Moviecard from "./Moviecard";
+
 
 
 function App() {

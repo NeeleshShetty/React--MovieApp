@@ -2,7 +2,7 @@ import React from 'react';
 
 class Moviecard extends React.Component {
 	render() {
-		const { title, plot, price, rating, stars,fav,cart } = this.props.movies;
+		const { title, plot, price, rating, star,fav,cart } = this.props.movies;
 		return (
 			<div className="main">
 				<div className="movie-card">
@@ -24,7 +24,7 @@ class Moviecard extends React.Component {
 									alt="minus"
 									className="str-btn"
 									src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png"
-									onClick={this.minusstars}
+									onClick={() => { this.props.minusStars(this.props.movies) }}
 								/>
 								&emsp;
 								<img
@@ -37,10 +37,10 @@ class Moviecard extends React.Component {
 									alt="plus"
 									className="str-btn"
 									src="https://cdn-icons-png.flaticon.com/128/748/748113.png"
-									onClick={this.addStars}
+									onClick={()=>{this.props.addStars(this.props.movies)}}
 								/>
 								&emsp;
-								<span className="starCount">{stars}</span>
+								<span className="starCount">{star}</span>
 							</div>
 							{/* {fav? <button className="unfavourite-btn" onClick={this.handlefav}>Un-favourite</button> : 
 							<button className="favourite-btn" onClick={this.handlefav}>Favourite</button> } */}
