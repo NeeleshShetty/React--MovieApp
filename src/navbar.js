@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import styled from 'styled-components';
+import navStyle from './Navnar.module.css';
 
 const Nav = styled.div`
         height: 70;
@@ -11,7 +12,7 @@ const Nav = styled.div`
 `
 const Title = styled.div`
 fontSize: 50px;
-		color: #fff;
+		color: ${(props)=>props.textcolor};
 		fontWeight: 600;
 		fontFamily: Montserrat, sans-serif;
 		textTransform: uppercase;
@@ -36,9 +37,9 @@ class Navbar extends Component {
 		return (
 			<>
 			<Nav>
-				<Title>Moviecard</Title>
+				<Title textcolor="black" >Moviecard</Title>
 				<div style={style.cartIconContainer}>
-				<img alt="Cart-icon" src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png"  style={style.cartIcon}/>
+				<img alt="Cart-icon" src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png"  className={navStyle.cartIconContainer}/>
 				<Cartcount color="yellow" show={true}>3</Cartcount>
 				</div>
 			</Nav>
