@@ -1,17 +1,35 @@
 import {Component} from 'react';
+import styled from 'styled-components';
 
+const Nav = styled.div`
+        height: 70;
+		background: #4267b2;
+		display:flex;
+		justify-content: space-between ;
+		align-items: center;
+		position: relative,
+`
+const Title = styled.div`
+fontSize: 50px;
+		color: #fff;
+		fontWeight: 600;
+		fontFamily: Montserrat, sans-serif;
+		textTransform: uppercase;
+		marginLeft: 20;
+`
 class Navbar extends Component {
 	render() {
 		return (
 			<>
-			<div style={style.nav}>
-				<div style={style.title}>Moviecard</div>
+			<Nav>
+				<Title>Moviecard</Title>
 				<div style={style.cartIconContainer}>
-				<img alt="Cart-icon" style={style.cartIcon}/>
+				<img alt="Cart-icon" src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png"  style={style.cartIcon}/>
 				<span style={style.cartCount}>0</span>
 				</div>
-			</div>
+			</Nav>
 			</>
+
 		)
 	}
 	
@@ -31,14 +49,7 @@ const style={
 		alignItems: "center",
 		position: "relative",
 	  },
-	  title:{
-		fontSize: 30,
-		color: "#fff",
-		fontWeight: 600,
-		fontFamily: '"Montserrat", sans-serif',
-		textTransform: "uppercase",
-		marginLeft: 20
-	  },
+	  
 	  
 	  cartIconContainer: {
 		position: "relative",
