@@ -1,13 +1,14 @@
 
 import Movielist from "./MovieList";
+import Navbar from "./navbar";
 
 
 
 function App() {
   return (
     <>
-      <h1>Movie App</h1>
       
+      <Navbar />
       <Movielist />
      
     </>

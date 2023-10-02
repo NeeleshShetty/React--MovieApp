@@ -2,7 +2,9 @@ import React from 'react';
 
 class Moviecard extends React.Component {
 	render() {
-		const { title, plot, price, rating, star,fav,cart } = this.props.movies;
+		const {addStars,minusStars,favourite,movies,togcart} = this.props;
+		
+		const { title, plot, price, rating, star,fav,isInCart } = this.props.movies;
 		return (
 			<div className="main">
 				<div className="movie-card">
@@ -24,7 +26,7 @@ class Moviecard extends React.Component {
 									alt="minus"
 									className="str-btn"
 									src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png"
-									onClick={() => { this.props.minusStars(this.props.movies) }}
+									onClick={() => { minusStars(movies) }}
 								/>
 								&emsp;
 								<img
@@ -37,7 +39,7 @@ class Moviecard extends React.Component {
 									alt="plus"
 									className="str-btn"
 									src="https://cdn-icons-png.flaticon.com/128/748/748113.png"
-									onClick={()=>{this.props.addStars(this.props.movies)}}
+									onClick={()=>{addStars(movies)}}
 								/>
 								&emsp;
 								<span className="starCount">{star}</span>
@@ -45,9 +47,9 @@ class Moviecard extends React.Component {
 							{/* {fav? <button className="unfavourite-btn" onClick={this.handlefav}>Un-favourite</button> : 
 							<button className="favourite-btn" onClick={this.handlefav}>Favourite</button> } */}
 							
-							<button className={fav?"unfavourite-btn": "favourite-btn" } onClick={this.handlefav}>{fav?"unfavourite": "favourite" } </button>
+							<button className={fav?"unfavourite-btn": "favourite-btn" } onClick={()=>{favourite(movies)}}>{fav?"unfavourite": "favourite" } </button>
 
-							<button className={cart?"cart-btn":"remove-cart-btn" } onClick={this.handlecart}>{cart?"cart":"remove-cart" }</button>
+							<button className={isInCart?"cart-btn":"remove-cart-btn" } onClick={()=>{togcart(movies)}}>{isInCart?"cart":"remove-cart" }</button>
 						</div>
 					</div>
 				</div>

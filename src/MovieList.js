@@ -7,6 +7,7 @@ class Movielist extends Component {
 		this.state = {
 			movies: [
 				{
+					id:1,
 					title: 'The Avengers',
 					plot: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
 					poster:
@@ -18,6 +19,7 @@ class Movielist extends Component {
 					isInCart: false,
 				},
 				{
+					id:2,
 					title: 'The Dark Knight',
 					plot: 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
 					poster:
@@ -29,6 +31,7 @@ class Movielist extends Component {
 					isInCart: false,
 				},
 				{
+					id:3,
 					title: 'Iron Man',
 					plot: 'After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.',
 					poster:
@@ -70,16 +73,37 @@ class Movielist extends Component {
 			movies: movies,
 		});
 	};
+
+	handleFav = (movie) =>{
+		const {movies} = this.state;
+		const mid = movies.indexOf(movie);
+		movies[mid].fav = ! movies[mid].fav;
+		this.setState({
+			movies:movies
+		})
+	}
+
+	handleCart = (movie)=>{
+		const {movies} = this.state;
+		const mid = movies.indexOf(movie);
+		console.log(mid,movies[mid].isInCart);
+		movies[mid].isInCart = ! movies[mid].isInCart; 
+		this.setState({
+			movies:movies
+		})
+	}
 	render() {
 		const { movies } = this.state;
 		return (
 			<>
-				{movies.map((movie, index) => (
+				{movies.map((movie, id) => (
 					<Moviecard
 						movies={movie}
-						key={index}
+						key={id}
 						addStars={this.handleIncstars}
 						minusStars={this.handleDecstars}
+						favourite={this.handleFav}
+						togcart = {this.handleCart}
 					/>
 				))}
 			</>
