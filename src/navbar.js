@@ -16,7 +16,21 @@ fontSize: 50px;
 		fontFamily: Montserrat, sans-serif;
 		textTransform: uppercase;
 		marginLeft: 20;
+		&:hover{
+			color:green;
+			width:60px;
+		}
 `
+const Cartcount = styled.div`
+background: ${(props) => props.color};
+		borderRadius: 50%;
+		padding: 4px 8px;
+		position: absolute;
+		right: 10;
+		top: -5;
+		fontSize: 12;
+		visibility:${(props) => props.show?"visible" : "hidden"};
+` 
 class Navbar extends Component {
 	render() {
 		return (
@@ -25,7 +39,7 @@ class Navbar extends Component {
 				<Title>Moviecard</Title>
 				<div style={style.cartIconContainer}>
 				<img alt="Cart-icon" src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png"  style={style.cartIcon}/>
-				<span style={style.cartCount}>0</span>
+				<Cartcount color="yellow" show={true}>3</Cartcount>
 				</div>
 			</Nav>
 			</>
