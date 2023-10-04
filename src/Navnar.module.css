@@ -1,5 +1,31 @@
 .cartIconContainer {
-    position: "relative";
-    cursor: "pointer";
-   
-  }
+	position: relative;
+	cursor: pointer;
+}
+
+.cartIcon {
+	height: 48;
+	margin-right: 20;
+}
+.nav {
+	height: 70;
+	background: #4267b2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.cartIconContainer {
+	position: relative;
+	cursor: pointer;
+}
+.cartCount {
+	background: orange;
+	border-radius: 50%;
+	padding: 4px 8px;
+	position: absolute;
+	right: 10;
+	top: -5;
+	font-size: 12;
+}
